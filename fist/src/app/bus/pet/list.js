@@ -8,20 +8,17 @@ export const List = () => {
   const { loading, error, pets } = useQueryAllPets();
 
   if (loading) {
-    return <p>Loading...</p>
+    return <p>Loading...</p>;
   }
 
   if (error) {
-    return (
-      <p>
-        We have a problem: {error.message}
-      </p>
-    )
+    return <p>We have a problem: {error.message}</p>;
   }
 
-  const petsJSX = pets.map(({id, name, weight}) => (
+  const petsJSX = pets.map(({ id, name, weight }) => (
     <p key={id}>
       <span>Name: {name}</span>
+      <br />
       <span>Weight: {weight}</span>
     </p>
   ));
@@ -31,5 +28,5 @@ export const List = () => {
       <h1>Pets</h1>
       {petsJSX}
     </>
-  )
+  );
 };
